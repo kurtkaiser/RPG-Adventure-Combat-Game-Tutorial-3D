@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] Transform target;
 
     void Update()
     {
