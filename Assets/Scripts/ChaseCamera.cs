@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ChaseCamera : MonoBehaviour
 {
-    [SerializeField] Transform target;
-
+    public Transform target;
 
     void LateUpdate()
     {

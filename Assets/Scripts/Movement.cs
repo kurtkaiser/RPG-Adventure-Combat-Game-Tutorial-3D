@@ -5,33 +5,29 @@ using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
+    Animator animator;
+    NavMeshAgent navMesh;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        navMesh = GetComponent<NavMeshAgent>();
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            MoveToCursor();
-        }
         UpdateAnimator();
-    }
-
-
-    private void MoveToCursor()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        bool hasHit = Physics.Raycast(ray, out hit);
-        if (hasHit)
-        {
-            GetComponent<NavMeshAgent>().destination = hit.point;
-        }
     }
 
     private void UpdateAnimator()
     {
-        Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
-        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-        float speed = localVelocity.z;
-        GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+        float speed = 0;
+        if (navMesh.remainingDistance > 0)
+        {
+            Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            speed = localVelocity.z;
+        }
+        animator.SetFloat("forwardSpeed", speed);        
     }
 }
