@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChaseCamera : MonoBehaviour
+namespace RPG.Core
 {
-    public Transform target;
-
-    void LateUpdate()
+    public class ChaseCamera : MonoBehaviour
     {
-        transform.position = target.position;
+        public Transform target;
+
+        void LateUpdate()
+        {
+            transform.position = target.position;
+        }
     }
 }

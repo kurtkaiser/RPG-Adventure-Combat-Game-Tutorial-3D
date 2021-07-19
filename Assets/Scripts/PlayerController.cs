@@ -3,34 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerController : MonoBehaviour
+namespace RPG.Control
 {
-    NavMeshAgent navMesh;
-
-    private void Start()
+    public class PlayerController : MonoBehaviour
     {
-        navMesh = GetComponent<NavMeshAgent>();
-    }
+        NavMeshAgent navMesh;
 
-    void Update()
-    {
-
-        if (Input.GetMouseButtonDown(0))
+        private void Start()
         {
-            MoveToCursor();
+            navMesh = GetComponent<NavMeshAgent>();
+        }
+
+        void Update()
+        {
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                MoveToCursor();
+            }
+        }
+
+        private void MoveToCursor()
+        {
+            navMesh.speed = Input.GetKey(KeyCode.LeftShift) ? 6 : 4.5f;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            bool hasHit = Physics.Raycast(ray, out hit);
+            if (hasHit)
+            {
+                GetComponent<NavMeshAgent>().destination = hit.point;
+            }
         }
     }
-
-    private void MoveToCursor()
-    {
-        navMesh.speed = Input.GetKey(KeyCode.LeftShift) ? 6 : 4.5f;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        bool hasHit = Physics.Raycast(ray, out hit);
-        if (hasHit)
-        {
-            GetComponent<NavMeshAgent>().destination = hit.point;
-        }
-    }
-
 }

@@ -3,31 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Movement : MonoBehaviour
+namespace RPG.Control
 {
-    Animator animator;
-    NavMeshAgent navMesh;
-
-    private void Start()
+    public class Movement : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-        navMesh = GetComponent<NavMeshAgent>();
-    }
+        Animator animator;
+        NavMeshAgent navMesh;
 
-    void Update()
-    {
-        UpdateAnimator();
-    }
-
-    private void UpdateAnimator()
-    {
-        float speed = 0;
-        if (navMesh.remainingDistance > 0)
+        private void Start()
         {
-            Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
-            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-            speed = localVelocity.z;
+            animator = GetComponent<Animator>();
+            navMesh = GetComponent<NavMeshAgent>();
         }
-        animator.SetFloat("forwardSpeed", speed);        
+
+        void Update()
+        {
+            UpdateAnimator();
+        }
+
+        private void UpdateAnimator()
+        {
+            float speed = 0;
+            if (navMesh.remainingDistance > 0)
+            {
+                Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
+                Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+                speed = localVelocity.z;
+            }
+            animator.SetFloat("forwardSpeed", speed);
+        }
     }
 }
