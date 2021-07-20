@@ -58,22 +58,14 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Character|Idle' has import animation warnings
+    animationImportWarnings: "\nClip 'Character|Run' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Spine2' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'Character|Jump'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine2'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Character|Run' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine2'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'UpperLeg.L'
+      to improve retargeting quality.\n\t'UpperLeg.L' has translation animation that
+      will be discarded.\n\t'UpperLeg.R' has translation animation that will be discarded.\n\nClip
+      'Character|Walk' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'UpperLeg.L'
       has translation animation that will be discarded.\n\t'UpperLeg.R' has translation
-      animation that will be discarded.\n\nClip 'Character|Walk' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'UpperLeg.L' has translation
-      animation that will be discarded.\n\t'UpperLeg.R' has translation animation
-      that will be discarded.\n"
+      animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0

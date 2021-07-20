@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
         {
             MoveToCursor();
         }
+        UpdateAnimator();
     }
 
 
